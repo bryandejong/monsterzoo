@@ -1,4 +1,4 @@
-class Monster {
+export default class Monster {
     constructor(name, image) {
         this.name = name;
         this.image = image;
