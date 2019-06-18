@@ -88,6 +88,10 @@ export default class Monster {
     printName(){ 
         console.log(this.name);
     }
+
+    printAll(){
+        console.log(this);
+    }
 }
 
 export const type = {
