@@ -21,7 +21,7 @@
             <h1>Monster configurator</h1>
             <div class="card">
                 <div class="card-body">
-                    <form>
+                    <form onSubmit="generate()">
                         <div class="form-group">
                             <input type="text" class="form-control" id="confName" placeholder="Monster name">
                         </div>
@@ -56,7 +56,7 @@
                             <label for="confEyes">Number of eyes</label>
                             <input type="number" placeholder="Number of eyes" id="confEyes" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-primary">Generate this</button>
+                        <input type="submit" class="btn btn-primary" value="Generate">
                     </form>
                 </div>
             </div>

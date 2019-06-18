@@ -90,14 +90,14 @@ export default class Monster {
     }
 }
 
-const type = {
+export const type = {
     WATER: 'water',
     FIRE: 'fire',
     AIR: 'air',
     EARTH: 'EARTH',
 }
 
-const arm = {
+export const arm = {
     TENTACLES: 'tentacles',
     FINS: 'fines',
     CLAWS: 'claws',
@@ -105,14 +105,14 @@ const arm = {
     WINGS: 'wings',
 }
 
-const fur = {
+export const fur = {
     SCALES: 'scales',
     SLIME: 'slime',
     FEATHERS: 'feathers',
     HAIR: 'hair',
 }
 
-const color = {
+export const color = {
     BLUE: 'blue',
     RED: 'red',
     GREEN: 'green',
