@@ -1,9 +1,9 @@
 import CreateMonsterView from '../views/createmonsterview.js';
 
 export default class CreateMonsterController {
-    
-    constructor(view) {
-        this.view = view;
+
+    constructor() {
+        this.view = new CreateMonsterView(this);
         this.view.populateSelectFields();
     }
 
@@ -19,4 +19,5 @@ export default class CreateMonsterController {
         let monster = new Monster(name, type, furType, color.PURPLE, armType, arms, legs, eyes, false, false, "No image");
         monster.printAll();
     }
+    
 }

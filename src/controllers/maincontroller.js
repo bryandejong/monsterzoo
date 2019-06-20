@@ -8,8 +8,7 @@ export default class MainController {
     }
 
     initCreateMonsterSection() {
-        this.createMonsterView = new CreateMonsterView();
-        this.createMonsterController = new CreateMonsterController(this.createMonsterView);
+        this.createMonsterController = new CreateMonsterController();
     }
-    
+
 }
