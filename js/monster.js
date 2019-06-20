@@ -95,33 +95,33 @@ export default class Monster {
 }
 
 export const type = {
-    WATER: 'water',
-    FIRE: 'fire',
-    AIR: 'air',
-    EARTH: 'EARTH',
+    WATER: 'Water',
+    FIRE: 'Fire',
+    AIR: 'Air',
+    EARTH: 'Earth',
 }
 
 export const arm = {
-    TENTACLES: 'tentacles',
-    FINS: 'fines',
-    CLAWS: 'claws',
-    CLAWWINGS: 'claws-wings',
-    WINGS: 'wings',
+    TENTACLES: 'Tentacles',
+    FINS: 'Fines',
+    CLAWS: 'Claws',
+    CLAWWINGS: 'Claws-wings',
+    WINGS: 'Wings',
 }
 
 export const fur = {
-    SCALES: 'scales',
-    SLIME: 'slime',
-    FEATHERS: 'feathers',
-    HAIR: 'hair',
+    SCALES: 'Scales',
+    SLIME: 'Slime',
+    FEATHERS: 'Feathers',
+    HAIR: 'Hair',
 }
 
 export const color = {
-    BLUE: 'blue',
-    RED: 'red',
-    GREEN: 'green',
-    ORANGE: 'orange',
-    BROWN: 'brown',
-    PURPLE: 'purple',
-    WHITE: 'white',
+    BLUE: 'Blue',
+    RED: 'Red',
+    GREEN: 'Green',
+    ORANGE: 'Orange',
+    BROWN: 'Brown',
+    PURPLE: 'Purple',
+    WHITE: 'White',
 }
