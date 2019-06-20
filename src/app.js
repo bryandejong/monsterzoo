@@ -1,4 +1,4 @@
-import Monster, { fur, type, arm, color } from './monster.js';
+import Monster, { fur, type, arm, color } from './models/monster.js';
 
 function generate(){
     let name = document.getElementById("confName").value;
@@ -34,7 +34,6 @@ function enums(){
         confArmType.appendChild(optArmType);
     };
     
-    debugger
     let confFurType = document.getElementById("confFurType")
   
     for(let item in fur){
