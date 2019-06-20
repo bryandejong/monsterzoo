@@ -6,11 +6,14 @@ export default class CreateMonsterView {
     constructor(controller) {
         this.controller = controller;
     }
+    populateSelectFields(){
 
-    populateSelectFields() {
         let confType = document.getElementById("confType")
+        confType.addEventListener("change", function(){
+            console.log("changed " + document.getElementById("confType").value )
+        })
 
-        for (let item in type) {
+        for(let item in type){
             let optType = document.createElement('option');
             optType.value = type[item];
             optType.innerHTML = type[item];
@@ -18,8 +21,11 @@ export default class CreateMonsterView {
         };
 
         let confArmType = document.getElementById("confArmType")
+        confArmType.addEventListener("change", function(){
+            console.log("changed " + document.getElementById("confArmType").value )
+        });
 
-        for (let item in arm) {
+        for(let item in arm){
             let optArmType = document.createElement('option');
             optArmType.value = arm[item];
             optArmType.innerHTML = arm[item];
@@ -27,8 +33,11 @@ export default class CreateMonsterView {
         };
 
         let confFurType = document.getElementById("confFurType")
-
-        for (let item in fur) {
+        confFurType.addEventListener("change", function(){
+            console.log("changed " + document.getElementById("confFurType").value )
+        })
+      
+        for(let item in fur){
             let optFurType = document.createElement('option');
             optFurType.value = fur[item];
             optFurType.innerHTML = fur[item];
@@ -36,4 +45,10 @@ export default class CreateMonsterView {
         };
     }
 
+    checkSelectField(value){
+        if(value == "Water"){
+            
+        }
+    }
+    
 }
