@@ -2,6 +2,10 @@ import Monster, { fur, type, arm, color } from '../models/monster.js';
 
 export default class CreateMonsterView {
 
+    constructor() {
+
+    }
+    
     populateSelectFields(){
         let confType = document.getElementById("confType")
       

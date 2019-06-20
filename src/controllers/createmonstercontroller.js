@@ -1,7 +1,10 @@
+import CreateMonsterView from '../views/createmonsterview.js';
+
 export default class CreateMonsterController {
     
     constructor(view) {
         this.view = view;
+        this.view.populateSelectFields();
     }
 
     generate() {

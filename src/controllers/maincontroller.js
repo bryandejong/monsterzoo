@@ -4,12 +4,13 @@ import CreateMonsterView from "../views/createmonsterview";
 export default class MainController {
 
     constructor() {
-        initCreateMonsterSection();
+        debugger;
+        this.initCreateMonsterSection();
     }
 
     initCreateMonsterSection() {
         this.createMonsterView = new CreateMonsterView();
-        this.createMonsterController = new CreateMonsterController();
+        this.createMonsterController = new CreateMonsterController(createMonsterView);
     }
     
 }
