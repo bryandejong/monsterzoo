@@ -45,5 +45,6 @@ function enums(){
     };
 }
 
+
 document.body.addEventListener("load", enums, true)
 document.getElementById("confSubmitButton").addEventListener("click", () => generate());
