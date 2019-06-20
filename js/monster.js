@@ -1,6 +1,6 @@
 export default class Monster {
 
-    constructor(name, type, amountOfArms, amountOfLegs, amountOfEyes, canFly, canSwim, fur, color, image) {
+    constructor(name, type, furType, color, armType, amountOfArms, amountOfLegs, amountOfEyes, canFly, canSwim, image) {
         this.name = name;
         this.type = type;
         this.amountOfArms = amountOfArms;
@@ -8,9 +8,10 @@ export default class Monster {
         this.amountOfEyes = amountOfEyes;
         this.canFly = canFly;
         this.canSwim = canSwim;
-        this.fur = fur;
+        this.fur = furType;
         this.color = color;
         this.image = image;
+        this.arm = armType;
     }
 
     get name() {
@@ -43,6 +44,14 @@ export default class Monster {
 
     set color(value){
         this._color = value;
+    }
+
+    get arm() {
+        return this._arm
+    }
+
+    set arm(value){
+        this._arm = arm;
     }
 
     get amountOfArms(){
