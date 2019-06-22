@@ -1,12 +1,20 @@
+import GridController from "../controllers/gridcontroller";
+import { Biome } from "../models/region";
+
 export default class GridView {
 
-    constructor() {
+    constructor(controller) {
+        this.controller = controller;
+        document.getElementById("jungle-button").onclick = () => this.controller.switchRegion(Biome.JUNGLE);
+        document.getElementById("desert-button").onclick = () => this.controller.switchRegion(Biome.DESERT);
+        document.getElementById("arctic-button").onclick = () => this.controller.switchRegion(Biome.ARCTIC);
     }
 
     drawGrid(grid, region) {
         let w = grid.length;
         let h = grid[0].Columns.length;
         this.gridContainer = document.getElementById("grid-container");
+        this.gridContainer.innerHTML = "";
         this.table = document.createElement("table");
         this.table.setAttribute("id", "grid");
 
