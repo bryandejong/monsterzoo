@@ -142,6 +142,8 @@ export default class CreateMonsterView {
 
             let imgType = document.createElement('IMG')
             imgType.setAttribute("src", this.monsterImgArray[8][0])
+            imgType.setAttribute("width", "220");
+            imgType.setAttribute("height", "220");
             monsterIMG.appendChild(imgType);
         });
     }
