@@ -1,7 +1,7 @@
 export default class Cell {
 
-    constructor(hasObstacle) {
+    constructor(hasObstacle, monster) {
         this.hasObstacle = hasObstacle;
-        this.monster = null;
+        this.monster = monster;
     }
 }

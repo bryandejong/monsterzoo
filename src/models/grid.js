@@ -1,4 +1,5 @@
 import Cell from "./cell.js";
+import Monster, { type, arm, color, fur } from "./monster.js";
 
 export default class Grid {
 
@@ -15,6 +16,9 @@ export default class Grid {
                 index++;
             }
         }
+
+        let testMonster = new Monster("Pikachu", type.FIRE, fur.FEATHERS, color.WHITE, arm.WINGS, 2, 4, 4, true, false, "https://cdn.bulbagarden.net/upload/thumb/0/02/129Magikarp.png/250px-129Magikarp.png");
+        this.getCell(1, 0).monster = testMonster;
     }
 
     getCell(x, y) {

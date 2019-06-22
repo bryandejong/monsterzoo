@@ -35,7 +35,6 @@ export default class GridController {
     }
 
     switchRegion(regionName) {
-        console.log("Switching region");
         switch (regionName) {
             case (Biome.ARCTIC):
                 this.initGrid(this.arcticRegion);
