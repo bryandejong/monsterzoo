@@ -1,10 +1,13 @@
 import CreateMonsterView from '../views/createmonsterview.js';
+import Monster, { fur, type, arm, color } from '../models/monster.js';
 
 export default class CreateMonsterController {
 
     constructor() {
         this.view = new CreateMonsterView(this);
+        this.view.generateMonser();
         this.view.populateSelectFields();
+        
     }
 
     generate() {
@@ -19,5 +22,47 @@ export default class CreateMonsterController {
         let monster = new Monster(name, type, furType, color.PURPLE, armType, arms, legs, eyes, false, false, "No image");
         monster.printAll();
     }
+
+   checkSelectField(t, f){
+       
+        if(t == "Water"){
+
+            var waterArray = new Array([0,1,2,3,4,5,6,7,8],[arm.TENTACLES, arm.FINS],[0,1,2,3,4], [0,1,2,3,4,5,6,7,8], [fur.SCALES, fur.SLIME], false, true, [color.BLUE, color.RED, color.GREEN]);
+            console.log("waterArray: "+waterArray);
+            return waterArray;
+        }
+        if(t == "Fire"){
+
+            if(f == undefined || f !== "Feathers"){
+                var fireArray = new Array([0,1,2,3,4,5,6],[arm.TENTACLES, arm.FINS, arm.CLAWWINGS], [0,1,2], [0,1,2,3,4], [fur.SCALES, fur.FEATHERS], false, false, [color.RED, color.ORANGE, color.BROWN], ["https://cdn.bulbagarden.net/upload/thumb/7/73/004Charmander.png/250px-004Charmander.png"]);
+            }else{
+                var fireArray = new Array([0,1,2,3,4,5,6],[arm.TENTACLES, arm.FINS, arm.CLAWWINGS], [0.1,2], [0,1,2,3,4], [fur.SCALES, fur.FEATHERS], false, true, [color.RED, color.ORANGE, color.BROWN], ["https://cdn.bulbagarden.net/upload/thumb/7/73/004Charmander.png/250px-004Charmander.png"]);
+            }
+            console.log("fireArray: "+fireArray);
+            return fireArray;
+        }
+        if(t == "Earth"){
+
+            var earthArray = new Array([2],[arm.CLAWS], [2, 4, 6], [2], [fur.HAIR, fur.SCALES, fur.SLIME], false, false, [color.PURPLE, color.ORANGE, color.WHITE]);
+            console.log("earthArray: "+earthArray);
+
+            return earthArray;
+
+        }
+        if(t == "Air"){
+
+            if(f == undefined || f !=="Scales"){
+                var airArray = new Array([2],[arm.WINGS, arm.CLAWWINGS], [0,2], [2],[fur.FEATHERS, fur.HAIR, fur.SCALES], true, false, [color.WHITE, color.BLUE, color.PURPLE]);
+            }else{
+                 var airArray = new Array([2],[arm.WINGS, arm.CLAWWINGS], [0,2], [2], [fur.FEATHERS, fur.HAIR, fur.SCALES], true, true, [color.WHITE, color.BLUE, color.PURPLE]);
+            }
+            console.log("airArray: "+airArray);
+            return airArray;
+        }else{
+            console.log("extra")
+        }
+    }
+
+
     
 }
