@@ -3,11 +3,15 @@ import CreateMonsterController from '../controllers/createmonstercontroller.js';
 
 export default class CreateMonsterView {
 
+
+    
     constructor(controller) {
         this.firstPopulate();
         this.controller = controller;
       
     }
+
+
     populateSelectFields(){
 
         var self = this;
@@ -20,7 +24,6 @@ export default class CreateMonsterView {
                 
                 let elementArray =  self.controller.checkSelectField(document.getElementById("confType").value,  document.getElementById("confFurType").value);
                 self.removePopulatedFields(confArray);
-                console.log("populate")
                 self.removeGeneratedMonster();
                 self.rePopulateField(elementArray)
             });
@@ -67,7 +70,7 @@ export default class CreateMonsterView {
 
     firstPopulate(){
 
-        let firstPopulateArray = new Array(["Water", "Fire", "Air", "Earth"], ["Tentacles", "Fins"], ["Scales", "Slime"],[0,1,2,3,4,5,6,7,8],[0,1,2,3,4],[0,1,2,3,4,5,6,7,8],["https://cdn.bulbagarden.net/upload/f/f5/Detective_Pikachu_artwork_2.png"])
+        let firstPopulateArray = new Array(["Water", "Fire", "Air", "Earth"], ["Tentacles", "Fins"], ["Scales", "Slime"],[0,1,2,3,4,5,6,7,8],[0,1,2,3,4],[0,1,2,3,4,5,6,7,8])
 
 
         for(let item in firstPopulateArray[0]){
@@ -129,12 +132,19 @@ export default class CreateMonsterView {
         monsterIMG.innerHTML = '';
     }
 
-    generateMonser(){
+    
+    generateMonser(controller){
+        
 
         document.getElementById("confSubmitButton").addEventListener("click", function(){
+        
+            this.monsterImgArray = controller.checkSelectField(document.getElementById("confType").value,  document.getElementById("confFurType").value);
+
             let imgType = document.createElement('IMG')
-            imgType.setAttribute("src", "https://cdn.bulbagarden.net/upload/thumb/7/73/004Charmander.png/250px-004Charmander.png")
+            imgType.setAttribute("src", this.monsterImgArray[8][0])
             monsterIMG.appendChild(imgType);
         });
     }
+
+    
 }
