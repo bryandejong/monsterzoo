@@ -37,6 +37,7 @@ export default class GridView {
     createCell(region, cell) {
         let td = document.createElement("td");
         td.classList.add(this.getClass(region.biome));
+        td.setAttribute("cell-index", cell.index);
 
         if (cell.hasObstacle == 1) {
             let img = document.createElement("img");
@@ -51,7 +52,7 @@ export default class GridView {
             img.setAttribute("draggable", "true");
             img.classList.add("img-fluid");
             img.ondragstart = (ev) => {
-                ev.dataTransfer.setData("id", ev.target.id);
+                ev.dataTransfer.setData("originIndex", ev.target.parentElement.getAttribute("cell-index"));
             }
             td.appendChild(img);
         }
@@ -63,9 +64,10 @@ export default class GridView {
         if (cell.hasObstacle != 1) {
             td.ondrop = (ev) => {
                 ev.preventDefault();
-                var data = ev.dataTransfer.getData("id");
-                if (ev.target.id != data) {
-                    ev.target.appendChild(document.getElementById(data));
+                let originIndex = ev.dataTransfer.getData("originIndex");
+                let targetIndex = ev.target.getAttribute("cell-index");
+                if (targetIndex != null && targetIndex != undefined) {
+                    this.controller.moveMonster(originIndex, targetIndex);
                 }
             }
         }

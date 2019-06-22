@@ -19,6 +19,8 @@ export default class GridController {
 
     //(Re)draws the grid with the given Region
     initGrid(region) {
+        this.currentRegion = region;
+        this.currentGrid = region.grid;
         this.gridView.draw(region);
     }
 
@@ -46,5 +48,11 @@ export default class GridController {
                 this.initGrid(this.desertRegion);
                 break;
         }
+    }
+
+    //Move a monster from the origin cell index to the target cell index.
+    moveMonster(originIndex, targetIndex) {
+        this.currentGrid.moveMonster(originIndex, targetIndex);
+        this.gridView.draw(this.currentRegion);
     }
 }
