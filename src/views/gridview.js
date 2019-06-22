@@ -64,7 +64,9 @@ export default class GridView {
             td.ondrop = (ev) => {
                 ev.preventDefault();
                 var data = ev.dataTransfer.getData("id");
-                ev.target.appendChild(document.getElementById(data));
+                if (ev.target.id != data) {
+                    ev.target.appendChild(document.getElementById(data));
+                }
             }
         }
 
