@@ -1,48 +1,50 @@
 import GridView from "../views/gridview";
-import GridLoader from "../models/gridloader";
 import Region, { Biome } from "../models/region";
 import Grid from "../models/grid";
 
 export default class GridController {
 
     constructor() {
-        this.initRegions();
         this.gridView = new GridView(this);
 
         fetch("./maps/basicmaps.json").then(response => {
-            response.json().then(json => {
-                this.regions = json;
-                this.currentRegion = this.regions[0];
-                this.initGrid();
-            })
+            response.json().then((json) => this.onFetched(json))
         });
     }
 
-    initGrid() {
-        this.grid = new Grid(this.currentRegion.grid);
-        this.gridView.drawGrid(this.grid, this.jungleRegion);
+    onFetched(json) {
+        this.initRegions(json);
+        this.initGrid(this.jungleRegion);
     }
 
-    initRegions() {
-        this.jungleRegion = new Region(Biome.JUNGLE, "bg-forest", "http://piskel-resizer.appspot.com/resize?size=200&url=http%3A%2F%2Fwww.piskelapp.com%2Fimg%2F3e984282-b60a-11e6-9ca6-7d306cd46a56.png");
-        this.desertRegion = new Region(Biome.DESERT, "bg-desert", "http://1.bp.blogspot.com/-J_EktHWrtfA/T_QsusglTHI/AAAAAAAAA50/D95c2fXfKrg/s1600/Edge_Obstacle_Cacti.png");
-        this.arcticRegion = new Region(Biome.ARCTIC, "bg-arctic", "https://cdn.pixabay.com/photo/2014/12/22/00/03/rock-576669_640.png");
+    //(Re)draws the grid with the given Region
+    initGrid(region) {
+        this.gridView.draw(region);
+    }
+
+    //Initializes regions based on the supplied JSON
+    initRegions(json) {
+        let jungleGrid = new Grid(json[0].grid);
+        this.jungleRegion = new Region(Biome.JUNGLE, jungleGrid, "http://piskel-resizer.appspot.com/resize?size=200&url=http%3A%2F%2Fwww.piskelapp.com%2Fimg%2F3e984282-b60a-11e6-9ca6-7d306cd46a56.png");
+
+        let arcticGrid = new Grid(json[1].grid);
+        this.arcticRegion = new Region(Biome.ARCTIC, arcticGrid, "https://cdn.pixabay.com/photo/2014/12/22/00/03/rock-576669_640.png");
+
+        let desertGrid = new Grid(json[2].grid);
+        this.desertRegion = new Region(Biome.DESERT, desertGrid, "http://1.bp.blogspot.com/-J_EktHWrtfA/T_QsusglTHI/AAAAAAAAA50/D95c2fXfKrg/s1600/Edge_Obstacle_Cacti.png");
     }
 
     switchRegion(regionName) {
         console.log("Switching region");
         switch (regionName) {
             case (Biome.ARCTIC):
-                this.currentRegion = this.regions[1];
-                this.initGrid();
+                this.initGrid(this.arcticRegion);
                 break;
             case (Biome.JUNGLE):
-                this.currentRegion = this.regions[0];
-                this.initGrid();
+                this.initGrid(this.jungleRegion);
                 break;
             case (Biome.DESERT):
-                this.currentRegion = this.regions[2];
-                this.initGrid();
+                this.initGrid(this.desertRegion);
                 break;
         }
     }

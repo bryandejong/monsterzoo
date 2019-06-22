@@ -1,8 +1,8 @@
 export default class Region {
 
-    constructor(biome, bgClass, obstacleImgUrl) {
+    constructor(biome, grid, obstacleImgUrl) {
         this.biome = biome;
-        this.bgClass = bgClass;
+        this.grid = grid;
         this.obstacleImgUrl = obstacleImgUrl;
     }
 }
