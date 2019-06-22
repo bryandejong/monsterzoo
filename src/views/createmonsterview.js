@@ -8,12 +8,9 @@ export default class CreateMonsterView {
     constructor(controller) {
         this.firstPopulate();
         this.controller = controller;
-      
     }
 
-
     populateSelectFields(){
-
         var self = this;
 
         let confArray = new Array("confArmType","confFurType","confType", "numberOfArms", "numberOfLegs", "numberOfEyes");
