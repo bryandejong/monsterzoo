@@ -7,6 +7,7 @@ export default class GridView {
 
     constructor(controller) {
         this.controller = controller;
+        this.hoverPanel = document.getElementById("info-panel");
 
         document.getElementById("jungle-button").onclick = () => this.controller.switchRegion(Biome.JUNGLE);
         document.getElementById("desert-button").onclick = () => this.controller.switchRegion(Biome.DESERT);
@@ -53,6 +54,15 @@ export default class GridView {
             img.classList.add("img-fluid");
             img.ondragstart = (ev) => {
                 ev.dataTransfer.setData("originIndex", ev.target.parentElement.getAttribute("cell-index"));
+            }
+            img.oncontextmenu = (ev) => {
+                ev.preventDefault();
+                this.hoverPanel.classList.remove("d-none");
+                ev.target.parentElement.appendChild(this.hoverPanel)
+            }
+
+            td.onmouseleave = (ev) => {
+                this.hoverPanel.classList.add("d-none");
             }
             td.appendChild(img);
         }
