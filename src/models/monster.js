@@ -93,14 +93,6 @@ export default class Monster {
     set canSwim(value) {
         this._canSwim = value;
     }
-
-    printName() {
-        console.log(this.name);
-    }
-
-    printAll() {
-        console.log(this);
-    }
 }
 
 export const type = {

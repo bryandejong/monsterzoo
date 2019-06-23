@@ -64,7 +64,6 @@ export default class GridController {
 
     placeMonster(index) {
         let monster = this.createMonsterController.getMonster();
-        console.log(monster);
         this.currentGrid.placeMonster(index, monster);
         this.gridView.draw(this.currentRegion);
     }

@@ -79,7 +79,6 @@ export default class GridView {
                 ev.preventDefault();
                 let originIndex = ev.dataTransfer.getData("originIndex");
                 let targetIndex = ev.target.getAttribute("cell-index");
-                console.log(originIndex);
                 if (targetIndex !== null && targetIndex !== undefined) {
                     if (originIndex !== null && originIndex !== undefined && originIndex !== "") {
                         this.controller.moveMonster(originIndex, targetIndex);
