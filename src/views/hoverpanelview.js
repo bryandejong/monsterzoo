@@ -10,10 +10,16 @@ export default class HoverPanelView {
         this.armCount = document.getElementById("info-panel-armcount");
         this.legCount = document.getElementById("info-panel-legcount");
         this.eyeCount = document.getElementById("info-panel-eyecount");
+
+        this.removeButton = document.getElementById("info-panel-remove");
+        this.removeButton.onclick = () => {
+            this.controller.removeMonster(this.selectedIndex);
+        }
     }
 
-    show(monster, element) {
-        console.log(monster);
+    show(cell, element) {
+        let monster = cell.monster;
+        this.selectedIndex = cell.index;
         this.name.innerHTML = monster.name;
         this.type.innerHTML = monster.type;
         this.armType.innerHTML = monster.arm;

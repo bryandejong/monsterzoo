@@ -53,17 +53,20 @@ export default class GridView {
             img.setAttribute("id", cell.monster.image);
             img.setAttribute("draggable", "true");
             img.classList.add("img-fluid");
+
             img.ondragstart = (ev) => {
                 ev.dataTransfer.setData("originIndex", ev.target.parentElement.getAttribute("cell-index"));
             }
+
             img.oncontextmenu = (ev) => {
                 ev.preventDefault();
-                this.hoverPanelView.show(cell.monster, ev.target.parentElement);
+                this.hoverPanelView.show(cell, ev.target.parentElement);
             }
 
             td.onmouseleave = (ev) => {
                 this.hoverPanelView.hide();
             }
+
             td.appendChild(img);
         }
 

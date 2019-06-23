@@ -17,10 +17,10 @@ export default class Grid {
             }
         }
 
-        let monsterA = new Monster("Pikachu", type.FIRE, fur.FEATHERS, color.WHITE, arm.WINGS, 2, 4, 4, true, false, "https://cdn.bulbagarden.net/upload/thumb/0/02/129Magikarp.png/250px-129Magikarp.png");
-        let monsterB = new Monster("Pikachu", type.FIRE, fur.FEATHERS, color.WHITE, arm.WINGS, 2, 4, 4, true, false, "https://cdn.bulbagarden.net/upload/thumb/7/73/004Charmander.png/250px-004Charmander.png");
-        let monsterC = new Monster("Pikachu", type.FIRE, fur.FEATHERS, color.WHITE, arm.WINGS, 2, 4, 4, true, false, "https://cdn.bulbagarden.net/upload/thumb/3/39/007Squirtle.png/250px-007Squirtle.png");
-        let monsterD = new Monster("Pikachu", type.FIRE, fur.FEATHERS, color.WHITE, arm.WINGS, 2, 4, 4, true, false, "https://cdn.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/250px-001Bulbasaur.png");
+        let monsterA = new Monster("Magikarp", type.WATER, fur.SCALES, color.RED, arm.FINS, 2, 4, 4, true, false, "https://cdn.bulbagarden.net/upload/thumb/0/02/129Magikarp.png/250px-129Magikarp.png");
+        let monsterB = new Monster("Charmander", type.FIRE, fur.SCALES, color.ORANGE, arm.CLAWS, 2, 4, 4, true, false, "https://cdn.bulbagarden.net/upload/thumb/7/73/004Charmander.png/250px-004Charmander.png");
+        let monsterC = new Monster("Squirtle", type.WATER, fur.SLIME, color.BLUE, arm.FINS, 2, 4, 4, true, false, "https://cdn.bulbagarden.net/upload/thumb/3/39/007Squirtle.png/250px-007Squirtle.png");
+        let monsterD = new Monster("Bulbasaur", type.EARTH, fur.HAIR, color.GREEN, arm.TENTACLES, 2, 4, 4, true, false, "https://cdn.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/250px-001Bulbasaur.png");
         this.getCell(1, 0).monster = monsterA;
         this.getCell(2, 0).monster = monsterB;
         this.getCell(8, 9).monster = monsterC;
@@ -47,5 +47,9 @@ export default class Grid {
 
         this.gridArray[target].monster = monster;
         this.gridArray[origin].monster = null;
+    }
+
+    removeMonster(index) {
+        this.gridArray[index].monster = null;
     }
 }

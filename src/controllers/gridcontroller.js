@@ -55,4 +55,9 @@ export default class GridController {
         this.currentGrid.moveMonster(originIndex, targetIndex);
         this.gridView.draw(this.currentRegion);
     }
+
+    removeMonster(index) {
+        this.currentGrid.removeMonster(index);
+        this.gridView.draw(this.currentRegion);
+    }
 }
