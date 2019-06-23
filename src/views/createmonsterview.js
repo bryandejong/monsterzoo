@@ -152,6 +152,7 @@ export default class CreateMonsterView {
             this.monsterImgArray = controller.checkSelectField(document.getElementById("confType").value,  document.getElementById("confFurType").value);
 
             let imgType = document.createElement('IMG')
+            imgType.classList.add("img-fluid")
             imgType.setAttribute("src", this.monsterImgArray[8][0])
             imgType.setAttribute("width", "220");
             imgType.setAttribute("height", "220");
