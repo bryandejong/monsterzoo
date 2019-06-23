@@ -4,8 +4,9 @@ import Grid from "../models/grid";
 
 export default class GridController {
 
-    constructor() {
+    constructor(createMonsterController) {
         this.gridView = new GridView(this);
+        this.createMonsterController = createMonsterController;
 
         fetch("./maps/basicmaps.json").then(response => {
             response.json().then((json) => this.onFetched(json))
@@ -59,5 +60,17 @@ export default class GridController {
     removeMonster(index) {
         this.currentGrid.removeMonster(index);
         this.gridView.draw(this.currentRegion);
+    }
+
+    placeMonster(index) {
+        let monster = this.createMonsterController.getMonster();
+        console.log(monster);
+        this.currentGrid.placeMonster(index, monster);
+        this.gridView.draw(this.currentRegion);
+    }
+
+    getMonster(index) {
+        let monster = this.currentGrid.getCellByIndex(index).monster;
+        return monster;
     }
 }

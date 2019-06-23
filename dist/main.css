@@ -1,6 +1,7 @@
 .monster-img{
-    height: 200px;
+    border-style: inset;
     width: 200px;
+    height: 200px;
     margin-bottom: 20px;
 }
 
@@ -57,8 +58,4 @@ td  {
     display: flex;
     padding: 1px 4px;
     color: #ff3333;
-}
-
-#monsterIMG{
-    border-style: inset;
 }

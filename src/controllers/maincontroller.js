@@ -7,6 +7,7 @@ export default class MainController {
     constructor() {
         this.initCreateMonsterSection();
         this.initGridSection();
+        this.createMonsterController.gridController = this.gridController
     }
 
     initCreateMonsterSection() {
@@ -14,7 +15,7 @@ export default class MainController {
     }
 
     initGridSection() {
-        this.gridController = new GridController();
+        this.gridController = new GridController(this.createMonsterController);
     }
 
 }

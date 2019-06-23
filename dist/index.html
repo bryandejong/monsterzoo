@@ -40,27 +40,31 @@
                         <select class="form-control" id="confFurType">
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="confArms">Number of arms</label>
-                        <select class="form-control" id="numberOfArms">
-                        </select>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="confArms">Arms</label>
+                            <select class="form-control" id="numberOfArms">
+                            </select>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="confLegs">Legs</label>
+                            <select class="form-control" id="numberOfLegs">
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="confLegs">Number of legs</label>
-                        <select class="form-control" id="numberOfLegs">
-                        </select>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="confEyes">Eyes</label>
+                            <select class="form-control" id="numberOfEyes">
+                            </select>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="colors">Color</label>
+                            <select class="form-control" id="colors">
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="confEyes">Number of eyes</label>
-                        <select class="form-control" id="numberOfEyes">
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="colors">Color</label>
-                        <select class="form-control" id="colors">
-                        </select>
-                    </div>
-                    <div class="monster-img" id="monsterIMG">
+                    <div class="monster-img" id="monster-img-container">
 
                     </div>
                     <input id="confSubmitButton" type="submit" class="btn btn-primary" value="Generate">
@@ -92,7 +96,7 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Type: <span id="info-panel-type"></span></li>
             <li class="list-group-item">Arms: <span id="info-panel-armtype"></span></li>
-            <li class="list-group-item">Fur:  <span id="info-panel-furtype"></span></li>
+            <li class="list-group-item">Fur: <span id="info-panel-furtype"></span></li>
             <li class="list-group-item">Arms: <span id="info-panel-armcount"></span></li>
             <li class="list-group-item">Legs: <span id="info-panel-legcount"></span></li>
             <li class="list-group-item">Eyes: <span id="info-panel-eyecount"></span></li>
