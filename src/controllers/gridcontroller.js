@@ -27,7 +27,6 @@ export default class GridController {
         this.currentRegion = region;
         this.currentGrid = region.grid;
         this.gridView.draw(region);
-        console.log(this.currentRegion);
         this.weatherController.update(this.currentRegion.location);
     }
 
