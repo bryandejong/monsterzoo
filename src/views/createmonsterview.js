@@ -35,7 +35,6 @@ export default class CreateMonsterView {
             optType.innerHTML = array[1][item];
             confArmType.appendChild(optType);
         };
-        debugger;
         for(let item in array[4]){
             let optType = document.createElement('option');
             optType.value = array[4][item];
@@ -64,7 +63,6 @@ export default class CreateMonsterView {
             optType.innerHTML = array[3][item];
             numberOfEyes.appendChild(optType);
         };
-        debugger;
         for(let item in array[7]){
             let optType = document.createElement('option');
             optType.value = array[7][item];
