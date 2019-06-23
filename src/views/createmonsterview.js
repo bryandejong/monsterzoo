@@ -138,25 +138,31 @@ export default class CreateMonsterView {
 
     removeGeneratedMonster(){
         var monsterIMG = document.getElementById("monsterIMG")
-        monsterIMG.innerHTML = '';
+          monsterIMG.innerHTML = '';
+    } 
+    generateMonser(controller) {
+        document.getElementById("confSubmitButton").onclick = () => {
+            this.imgContainer.innerHTML = "";
+            this.monsterImgArray = controller.checkSelectField(document.getElementById("confType").value, document.getElementById("confFurType").value);
+            let imgElement = document.createElement('img');
+            imgElement.classList.add("img-fluid");
+            imgElement.setAttribute("id", "new-monster-img");
+            imgElement.setAttribute("src", this.monsterImgArray[8][0]);
+            imgElement.setAttribute("draggable", true);
+
+            imgElement.ondragstart = (ev) => {
+                let editedMonster = this.getMonster();
+                editedMonster.image = imgElement.getAttribute("src");
+                this.controller.generatedMonster = editedMonster;
+            }
+
+            let monster = this.getMonster();
+            monster.image = this.monsterImgArray[8][0];
+            
+
+            this.imgContainer.appendChild(imgElement);
+            this.controller.generatedMonster = monster;
+        };
     }
 
-    
-    generateMonser(controller){
-        
-
-        document.getElementById("confSubmitButton").addEventListener("click", function(){
-        
-            this.monsterImgArray = controller.checkSelectField(document.getElementById("confType").value,  document.getElementById("confFurType").value);
-
-            let imgType = document.createElement('IMG')
-            imgType.classList.add("img-fluid")
-            imgType.setAttribute("src", this.monsterImgArray[8][0])
-            imgType.setAttribute("width", "220");
-            imgType.setAttribute("height", "220");
-            monsterIMG.appendChild(imgType);
-        });
-    }
-
-    
 }
