@@ -159,8 +159,15 @@ export default class CreateMonsterView {
             imgElement.setAttribute("src", this.monsterImgArray[8][0]);
             imgElement.setAttribute("draggable", true);
 
+            imgElement.ondragstart = (ev) => {
+                let editedMonster = this.getMonster();
+                editedMonster.image = imgElement.getAttribute("src");
+                this.controller.generatedMonster = editedMonster;
+            }
+
             let monster = this.getMonster();
             monster.image = this.monsterImgArray[8][0];
+            
 
             this.imgContainer.appendChild(imgElement);
             this.controller.generatedMonster = monster;
@@ -179,7 +186,7 @@ export default class CreateMonsterView {
         let monster = new Monster(name, type, furType, color, armType, arms, legs, eyes, false, false);
         return monster;
     }
-    
+
     setMonster(monster) {
         this.populateSelectFields();
         document.getElementById("confName").value = monster.name;
@@ -200,7 +207,6 @@ export default class CreateMonsterView {
         imgElement.setAttribute("draggable", true);
         imgElement.ondragstart = (ev) => {
             let editedMonster = this.getMonster();
-            console.log(editedMonster);
             editedMonster.image = imgElement.getAttribute("src");
             this.controller.generatedMonster = editedMonster;
         }
