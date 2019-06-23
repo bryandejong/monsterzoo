@@ -5,6 +5,7 @@ export default class WeatherController {
 
     constructor() {
         this.view = new WeatherView();
+        this.view.rainCanvas();
     }
 
     update(location) {
