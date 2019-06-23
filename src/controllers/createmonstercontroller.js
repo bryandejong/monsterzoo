@@ -22,7 +22,7 @@ export default class CreateMonsterController {
         monster.printAll();
     }
 
-   checkSelectField(type,arms, furs, numberArms, numberLegs, numberEyes, colors){
+   checkSelectField(type,arms, furs, numberArms, numberLegs, numberEyes, colors) {
         if(type == "Water"){
 
             var waterArray = new Array([numberArms,0,1,2,3,4,5,6,7,8],[arms, arm.TENTACLES, arm.FINS],[numberLegs,0,1,2,3,4], [numberEyes,0,1,2,3,4,5,6,7,8], [furs, fur.SCALES, fur.SLIME], false, true, [colors,color.BLUE, color.RED, color.GREEN], ["https://cdn.bulbagarden.net/upload/thumb/3/39/007Squirtle.png/250px-007Squirtle.png"]);
@@ -60,7 +60,7 @@ export default class CreateMonsterController {
     }
 
     editMonster(index) {
-        let monster = this.gridController.getMonster(index)
+        let monster = this.gridController.getMonster(index);
         this.view.setMonster(monster);
         this.gridController.removeMonster(index);
     }

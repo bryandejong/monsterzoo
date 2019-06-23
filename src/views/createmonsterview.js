@@ -148,7 +148,6 @@ export default class CreateMonsterView {
         });
     }
 
-
     generateMonser(controller) {
         document.getElementById("confSubmitButton").onclick = () => {
             this.imgContainer.innerHTML = "";
@@ -214,6 +213,5 @@ export default class CreateMonsterView {
         this.imgContainer.appendChild(imgElement);
         this.controller.generatedMonster = monster;
     }
-
 
 }

@@ -1,6 +1,7 @@
 import GridView from "../views/gridview";
 import Region, { Biome } from "../models/region";
 import Grid from "../models/grid";
+import TextBubbleView from "../views/textbubbleview";
 
 export default class GridController {
 
@@ -55,6 +56,7 @@ export default class GridController {
     moveMonster(originIndex, targetIndex) {
         this.currentGrid.moveMonster(originIndex, targetIndex);
         this.gridView.draw(this.currentRegion);
+        this.triggerSurroundingIndices(targetIndex);
     }
 
     removeMonster(index) {
@@ -66,10 +68,34 @@ export default class GridController {
         let monster = this.createMonsterController.getMonster();
         this.currentGrid.placeMonster(index, monster);
         this.gridView.draw(this.currentRegion);
+        this.triggerSurroundingIndices(index);
     }
 
     getMonster(index) {
         let monster = this.currentGrid.getCellByIndex(index).monster;
         return monster;
+    }
+
+    triggerSurroundingIndices(index) {
+        let x = index % this.currentGrid.width;
+        let y = Math.floor(index / this.currentGrid.height);
+
+        this.triggerIndex(x - 1, y);
+        this.triggerIndex(x + 1, y);
+        this.triggerIndex(x, y - 1);
+        this.triggerIndex(x, y + 1);
+
+    }
+
+    triggerIndex(x, y) {
+        let cell = this.currentGrid.getCell(x, y);
+        if(cell == null || cell == undefined) {
+            return;
+        } else if(cell.monster == null || cell.monster == undefined) {
+            return;
+        }
+
+        let index = this.currentGrid.getIndex(x, y);
+        new TextBubbleView(index);
     }
 }

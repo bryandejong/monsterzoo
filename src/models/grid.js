@@ -19,7 +19,12 @@ export default class Grid {
     }
 
     getCell(x, y) {
-        let index = (y * this.height) + x;
+        let index = this.getIndex(x, y);
+        if(index > this.gridArray.length) {
+            return null;
+        } else if(x < 0 || x > this.width || y < 0 || y > this.height) {
+            return null;
+        }
         return this.gridArray[index];
     }
 
@@ -35,6 +40,10 @@ export default class Grid {
             return;
         }
 
+        if(this.gridArray[target].monster != undefined || this.gridArray[target].monster != null) {
+            return;
+        }
+
         this.gridArray[target].monster = monster;
         this.gridArray[origin].monster = null;
     }
@@ -45,5 +54,10 @@ export default class Grid {
 
     placeMonster(index, monster) {
         this.gridArray[index].monster = monster;
+    }
+
+    getIndex(x, y) {
+        let index = (y * this.height) + x;
+        return index;
     }
 }

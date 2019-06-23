@@ -107,5 +107,4 @@ export default class GridView {
         }
     }
 
-
 }
