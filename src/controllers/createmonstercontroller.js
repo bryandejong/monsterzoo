@@ -57,11 +57,7 @@ export default class CreateMonsterController {
             }
             console.log("airArray: "+airArray);
             return airArray;
-        }else{
-            console.log("extra")
         }
     }
-
-
     
 }
