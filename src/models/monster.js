@@ -22,27 +22,27 @@ export default class Monster {
         this._name = value;
     }
 
-    get type() {
+    get type(){
         return this._type;
     }
 
-    set type(value) {
+    set type(value){
         this._type = value;
     }
 
-    get fur() {
+    get fur(){
         return this._fur;
     }
 
-    set fur(value) {
+    set fur(value){
         this._fur = value;
     }
 
-    get color() {
+    get color(){
         return this._color;
     }
 
-    set color(value) {
+    set color(value){
         this._color = value;
     }
 
@@ -50,48 +50,56 @@ export default class Monster {
         return this._arm
     }
 
-    set arm(value) {
+    set arm(value){
         this._arm = value;
     }
 
-    get amountOfArms() {
+    get amountOfArms(){
         return this._amountOfArms;
     }
 
-    set amountOfArms(value) {
+    set amountOfArms(value){
         this._amountOfArms = value;
     }
 
-    get amountOfLegs() {
+    get amountOfLegs(){
         return this._amountOfLegs;
     }
 
-    set amountOfLegs(value) {
+    set amountOfLegs(value){
         this._amountOfLegs = value;
     }
 
-    get amountOfEyes() {
+    get amountOfEyes(){
         return this._amountOfEyes;
     }
 
-    set amountOfEyes(value) {
+    set amountOfEyes(value){
         this._amountOfEyes = value;
     }
 
-    get canFly() {
+    get canFly(){
         return this._canFly;
     }
 
-    set canFly(value) {
+    set canFly(value){
         this._canFly = value;
     }
 
-    get canSwim() {
+    get canSwim(){
         return this._canSwim;
     }
 
-    set canSwim(value) {
+    set canSwim(value){
         this._canSwim = value;
+    }
+
+    printName(){ 
+        console.log(this.name);
+    }
+
+    printAll(){
+        console.log(this);
     }
 }
 
@@ -104,7 +112,7 @@ export const type = {
 
 export const arm = {
     TENTACLES: 'Tentacles',
-    FINS: 'Fins',
+    FINS: 'Fines',
     CLAWS: 'Claws',
     CLAWWINGS: 'Claws-wings',
     WINGS: 'Wings',

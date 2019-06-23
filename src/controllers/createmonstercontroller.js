@@ -7,6 +7,7 @@ export default class CreateMonsterController {
         this.view = new CreateMonsterView(this);
         this.view.populateSelectFields();
         this.view.generateMonser(this);
+        
     }
 
     generate() {
@@ -26,31 +27,35 @@ export default class CreateMonsterController {
         if(type == "Water"){
 
             var waterArray = new Array([numberArms,0,1,2,3,4,5,6,7,8],[arms, arm.TENTACLES, arm.FINS],[numberLegs,0,1,2,3,4], [numberEyes,0,1,2,3,4,5,6,7,8], [furs, fur.SCALES, fur.SLIME], false, true, [colors,color.BLUE, color.RED, color.GREEN], ["https://cdn.bulbagarden.net/upload/thumb/3/39/007Squirtle.png/250px-007Squirtle.png"]);
+            console.log("waterArray: "+waterArray);
             return waterArray;
         }
-        if (type == "Fire") {
+        if(type == "Fire"){
 
             if(furs == undefined || furs !== "Feathers"){
                 var fireArray = new Array([numberArms,0,1,2,3,4,5,6],[arms, arm.TENTACLES, arm.FINS, arm.CLAWWINGS], [numberLegs,0,1,2], [numberEyes,0,1,2,3,4], [furs, fur.SCALES, fur.FEATHERS], false, false, [colors,color.RED, color.ORANGE, color.BROWN], ["https://cdn.bulbagarden.net/upload/thumb/7/73/004Charmander.png/250px-004Charmander.png"]);
             }else{
                 var fireArray = new Array([numberArms,0,1,2,3,4,5,6],[arms, arm.TENTACLES, arm.FINS, arm.CLAWWINGS], [numberLegs,0.1,2], [numberEyes,0,1,2,3,4], [furs, fur.SCALES, fur.FEATHERS], false, true, [colors,color.RED, color.ORANGE, color.BROWN], ["https://cdn.bulbagarden.net/upload/thumb/7/73/004Charmander.png/250px-004Charmander.png"]);
             }
+            console.log("fireArray: "+fireArray);
             return fireArray;
         }
-        if (type == "Earth") {
+        if(type == "Earth"){
 
             var earthArray = new Array([2],[arm.CLAWS], [numberLegs,2, 4, 6], [2], [furs, fur.HAIR, fur.SCALES, fur.SLIME], false, false, [colors,color.PURPLE, color.ORANGE, color.WHITE], ["https://cdn.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/250px-001Bulbasaur.png"]);
+            console.log("earthArray: "+earthArray);
 
             return earthArray;
 
         }
-        if (type == "Air") {
+        if(type == "Air"){
 
             if(furs == undefined || furs !=="Scales"){
                 var airArray = new Array([2],[arms, arm.WINGS, arm.CLAWWINGS], [numberLegs,0,2], [2],[furs, fur.FEATHERS, fur.HAIR, fur.SCALES], true, false, [colors,color.WHITE, color.BLUE, color.PURPLE], ["https://cdn.bulbagarden.net/upload/thumb/5/55/016Pidgey.png/250px-016Pidgey.png"]);
             }else{
                  var airArray = new Array([2],[arms, arm.WINGS, arm.CLAWWINGS], [numberLegs,0,2], [2], [furs, fur.FEATHERS, fur.HAIR, fur.SCALES], true, true, [colors,color.WHITE, color.BLUE, color.PURPLE], ["https://cdn.bulbagarden.net/upload/thumb/5/55/016Pidgey.png/250px-016Pidgey.png"]);
             }
+            console.log("airArray: "+airArray);
             return airArray;
         } 
     }
@@ -64,4 +69,5 @@ export default class CreateMonsterController {
         this.view.setMonster(monster);
         this.gridController.removeMonster(index);
     }
+}
 }

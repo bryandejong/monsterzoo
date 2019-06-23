@@ -1,7 +1,6 @@
 .monster-img{
-    border-style: inset;
-    width: 200px;
     height: 200px;
+    width: 200px;
     margin-bottom: 20px;
 }
 
@@ -60,6 +59,21 @@ td  {
     color: #ff3333;
 }
 
+#monsterIMG{
+    border-style: inset;
+}
+
+#rainCanvas{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 600px;
+    width: 600px;
+    margin-top: 90px;
+    margin-left: 20px;
+    z-index: 10;
+    pointer-events: none;
+}    
 .speech {
 	position: absolute;
 	background: #8000ff;
