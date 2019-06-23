@@ -5,9 +5,10 @@ import TextBubbleView from "../views/textbubbleview";
 
 export default class GridController {
 
-    constructor(createMonsterController) {
+    constructor(createMonsterController, weatherController) {
         this.gridView = new GridView(this);
         this.createMonsterController = createMonsterController;
+        this.weatherController = weatherController;
         this.rainCanvas();
 
         fetch("./maps/basicmaps.json").then(response => {
@@ -26,18 +27,23 @@ export default class GridController {
         this.currentRegion = region;
         this.currentGrid = region.grid;
         this.gridView.draw(region);
+        console.log(this.currentRegion);
+        this.weatherController.update(this.currentRegion.location);
     }
 
     //Initializes regions based on the supplied JSON
     initRegions(json) {
         let jungleGrid = new Grid(json[0].grid);
-        this.jungleRegion = new Region(Biome.JUNGLE, jungleGrid, "http://piskel-resizer.appspot.com/resize?size=200&url=http%3A%2F%2Fwww.piskelapp.com%2Fimg%2F3e984282-b60a-11e6-9ca6-7d306cd46a56.png");
+        let jungleCity = json[0]["reference city"];
+        this.jungleRegion = new Region(Biome.JUNGLE, jungleGrid, "http://piskel-resizer.appspot.com/resize?size=200&url=http%3A%2F%2Fwww.piskelapp.com%2Fimg%2F3e984282-b60a-11e6-9ca6-7d306cd46a56.png", jungleCity);
 
         let arcticGrid = new Grid(json[1].grid);
-        this.arcticRegion = new Region(Biome.ARCTIC, arcticGrid, "https://cdn.pixabay.com/photo/2014/12/22/00/03/rock-576669_640.png");
+        let arcticCity = json[1]["reference city"];
+        this.arcticRegion = new Region(Biome.ARCTIC, arcticGrid, "https://cdn.pixabay.com/photo/2014/12/22/00/03/rock-576669_640.png", arcticCity);
 
         let desertGrid = new Grid(json[2].grid);
-        this.desertRegion = new Region(Biome.DESERT, desertGrid, "http://1.bp.blogspot.com/-J_EktHWrtfA/T_QsusglTHI/AAAAAAAAA50/D95c2fXfKrg/s1600/Edge_Obstacle_Cacti.png");
+        let desertCity = json[2]["reference city"];
+        this.desertRegion = new Region(Biome.DESERT, desertGrid, "http://1.bp.blogspot.com/-J_EktHWrtfA/T_QsusglTHI/AAAAAAAAA50/D95c2fXfKrg/s1600/Edge_Obstacle_Cacti.png", desertCity);
     }
 
     switchRegion(regionName) {
@@ -158,5 +164,9 @@ export default class GridController {
 
         let index = this.currentGrid.getIndex(x, y);
         new TextBubbleView(index);
+    }
+
+    getLocation(){
+        return this.currentRegion.location;
     }
 }
