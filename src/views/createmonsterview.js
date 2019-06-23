@@ -69,7 +69,6 @@ export default class CreateMonsterView {
     }
 
     setMonster(monster) {
-        this.populateSelectFields();
         document.getElementById("confName").value = monster.name;
         document.getElementById("confType").value = monster.type;
         document.getElementById("confArmType").value = monster.arm;
@@ -80,7 +79,6 @@ export default class CreateMonsterView {
         document.getElementById("colors").value = monster.color;
 
         this.imgContainer.innerHTML = "";
-        this.monsterImgArray = this.controller.checkSelectField(document.getElementById("confType").value, document.getElementById("confFurType").value);
         let imgElement = document.createElement('img');
         imgElement.classList.add("img-fluid");
         imgElement.setAttribute("id", "new-monster-img");
