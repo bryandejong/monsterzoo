@@ -3,6 +3,7 @@ import { Biome } from "../models/region";
 import { create } from "domain";
 import { isNullOrUndefined } from "util";
 import HoverPanelView from "./hoverpanelview";
+import TextBubbleView from "./textbubbleview";
 
 export default class GridView {
 
@@ -61,6 +62,10 @@ export default class GridView {
             img.oncontextmenu = (ev) => {
                 ev.preventDefault();
                 this.hoverPanelView.show(cell, ev.target.parentElement);
+            }
+
+            img.onclick = (ev) => {
+                new TextBubbleView(cell.index);
             }
 
             td.onmouseleave = (ev) => {
