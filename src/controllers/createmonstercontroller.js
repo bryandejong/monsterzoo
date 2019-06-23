@@ -104,6 +104,7 @@ export default class CreateMonsterController {
 
     editMonster(index) {
         let monster = this.gridController.getMonster(index);
+        this.changedView(monster.type);
         this.view.setMonster(monster);
         this.gridController.removeMonster(index);
     }
