@@ -51,7 +51,7 @@ export default class Monster {
     }
 
     set arm(value){
-        this._arm = arm;
+        this._arm = value;
     }
 
     get amountOfArms(){

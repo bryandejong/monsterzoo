@@ -2,11 +2,13 @@ import GridController from "../controllers/gridcontroller";
 import { Biome } from "../models/region";
 import { create } from "domain";
 import { isNullOrUndefined } from "util";
+import HoverPanelView from "./hoverpanelview";
 
 export default class GridView {
 
     constructor(controller) {
         this.controller = controller;
+        this.hoverPanelView = new HoverPanelView(controller);
 
         document.getElementById("jungle-button").onclick = () => this.controller.switchRegion(Biome.JUNGLE);
         document.getElementById("desert-button").onclick = () => this.controller.switchRegion(Biome.DESERT);
@@ -53,6 +55,14 @@ export default class GridView {
             img.classList.add("img-fluid");
             img.ondragstart = (ev) => {
                 ev.dataTransfer.setData("originIndex", ev.target.parentElement.getAttribute("cell-index"));
+            }
+            img.oncontextmenu = (ev) => {
+                ev.preventDefault();
+                this.hoverPanelView.show(cell.monster, ev.target.parentElement);
+            }
+
+            td.onmouseleave = (ev) => {
+                this.hoverPanelView.hide();
             }
             td.appendChild(img);
         }
