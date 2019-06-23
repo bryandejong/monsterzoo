@@ -17,9 +17,9 @@ export default class WeatherView {
     setDescription(value) {
         this.descElement.innerHTML = value;
     }
-    rainCanvas() {
 
-        var canvas = document.getElementById("rainCanvas");
+    rainCanvas() {
+        let canvas = document.getElementById("rainCanvas");
 
         if (canvas.getContext) {
             var ctx = canvas.getContext('2d');
@@ -74,44 +74,5 @@ export default class WeatherView {
             setInterval(draw, 50);
 
         }
-    }
-
-    placeMonster(index) {
-        let monster = this.createMonsterController.getMonster();
-        this.currentGrid.placeMonster(index, monster);
-        this.gridView.draw(this.currentRegion);
-        this.triggerSurroundingIndices(index);
-    }
-
-    getMonster(index) {
-        let monster = this.currentGrid.getCellByIndex(index).monster;
-        return monster;
-    }
-
-    triggerSurroundingIndices(index) {
-        let x = index % this.currentGrid.width;
-        let y = Math.floor(index / this.currentGrid.height);
-
-        this.triggerIndex(x - 1, y);
-        this.triggerIndex(x + 1, y);
-        this.triggerIndex(x, y - 1);
-        this.triggerIndex(x, y + 1);
-
-    }
-
-    triggerIndex(x, y) {
-        let cell = this.currentGrid.getCell(x, y);
-        if (cell == null || cell == undefined) {
-            return;
-        } else if (cell.monster == null || cell.monster == undefined) {
-            return;
-        }
-
-        let index = this.currentGrid.getIndex(x, y);
-        new TextBubbleView(index);
-    }
-
-    getLocation(){
-        return this.currentRegion.location;
     }
 }
